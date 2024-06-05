@@ -27,6 +27,6 @@ provider "okta" {
 
 provider "aws" {
   region = "us-east-1"
-  access_key = "AKIAW3MEERHUTXJLFTFC"
-  secret_key = "9d0sjMWrOsYSMhfprOrALG7Mjp+5jKVTE99u7+KJ"
+  access_key = "Enter your access key here"
+  secret_key = "Enter your secret access key here"
 }
