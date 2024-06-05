@@ -1,4 +1,4 @@
-resource "okta_group" "example" {
+r resource "okta_group" "example" {
   for_each = toset(var.okta_group_name)
   name        = each.key
   description = "${each.value} Group"
@@ -24,7 +24,7 @@ resource "okta_user" "example" {
 }
 
 resource "okta_app_group_assignments" "aws_sso_app_assignments" {
-  app_id   = "0oahc4vzl9WLWQux55d7"  
+  app_id   = "Enter your Okta Application (AWS SSO) ID here"  
   dynamic "group" {
     for_each = okta_group.example
     content {
