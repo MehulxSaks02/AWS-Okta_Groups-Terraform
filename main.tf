@@ -32,3 +32,4 @@ resource "okta_app_group_assignments" "aws_sso_app_assignments" {
     }
   }
 }
+
