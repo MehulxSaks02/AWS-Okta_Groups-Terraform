@@ -1,4 +1,4 @@
-r resource "okta_group" "example" {
+resource "okta_group" "example" {
   for_each = toset(var.okta_group_name)
   name        = each.key
   description = "${each.value} Group"
