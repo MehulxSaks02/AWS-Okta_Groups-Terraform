@@ -11,7 +11,7 @@ variable "okta_base_url" {
 variable "okta_group_name" {
     type = list
     description = "list of okta groups"
-    default = ["test-group1", "test-group2"]
+    default = ["aws-group1", "aws-group2", "aws-group3"]
 }
 
 variable "okta_users" {
@@ -57,6 +57,17 @@ variable "okta_users" {
         project = "RPA"
       }
     }
+    user4 = {
+      first_name = "Shreenidhi"
+      last_name = "C"
+      email = "shreenidhi.c@gmail.com"
+      login = "shreenidhi.c@gmail.com"
+      custom_attributes = {
+        department = "UAD"
+        title = "Analyst"
+        project = "API"
+      }
+    }
   }
 }
 
@@ -64,8 +75,9 @@ variable "user_group_assignments" {
   type = map(list(string))
   description = "Map of user keys to list of group names they should be assigned to"
   default = {
-    user1 = ["test-group1"]
-    user2 = ["test-group2"]
-    user3 = ["test-group2"]
+    user1 = ["aws-group1"]
+    user2 = ["aws-group2"]
+    user3 = ["aws-group2"]
+    user4 = ["aws-group3"]
   }
 }
