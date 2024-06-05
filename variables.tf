@@ -1,11 +1,11 @@
 variable "okta_org_name" {
   type = string
-  default = "dev-19154645"
+  default = "Enter your okta organization name"
 }
 
 variable "okta_base_url" {
   type = string
-  default = "okta.com"
+  default = "Enter your okta base url"
 }
 
 variable "okta_group_name" {
