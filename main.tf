@@ -1,3 +1,4 @@
+
 resource "okta_group" "example" {
   for_each = toset(var.okta_group_name)
   name        = each.key
@@ -31,5 +32,19 @@ resource "okta_app_group_assignments" "aws_sso_app_assignments" {
       id = group.value.id
     }
   }
+}
+
+resource "null_resource" "push_groups" {
+  provisioner "local-exec" {
+    command = "python3 push_groups.py"
+    environment = {
+      OKTA_DOMAIN     = "${var.okta_org_name}.${var.okta_base_url}"
+      OKTA_API_TOKEN  = jsondecode(data.aws_secretsmanager_secret_version.this.secret_string)["api_token"]
+      AWS_SSO_APP_ID  = "Enter your AWS SSO APP ID"  # Replace with your actual AWS SSO app ID
+      GROUP_NAMES     = join(",", var.okta_group_name)
+    }
+  }
+
+  depends_on = [okta_app_group_assignments.aws_sso_app_assignments]
 }
 
