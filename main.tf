@@ -1,4 +1,5 @@
 
+
 resource "okta_group" "example" {
   for_each = toset(var.okta_group_name)
   name        = each.key

@@ -1,4 +1,5 @@
 
+
 variable "okta_org_name" {
   type = string
   default = "Enter your okta organization name"
